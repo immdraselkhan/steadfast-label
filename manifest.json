@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Steadfast Label Downloader",
+  "version": "2.4",
+  "description": "Customize and preview Steadfast labels",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://steadfast.com.bd/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://steadfast.com.bd/user/consignment/print-label/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
